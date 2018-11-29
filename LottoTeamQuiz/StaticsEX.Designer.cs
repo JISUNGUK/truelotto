@@ -44,10 +44,10 @@
             // 
             this.IndexedGrid.Controls.Add(this.tabPage1);
             this.IndexedGrid.Controls.Add(this.tabPage2);
-            this.IndexedGrid.Location = new System.Drawing.Point(41, 57);
+            this.IndexedGrid.Location = new System.Drawing.Point(12, 12);
             this.IndexedGrid.Name = "IndexedGrid";
             this.IndexedGrid.SelectedIndex = 0;
-            this.IndexedGrid.Size = new System.Drawing.Size(673, 344);
+            this.IndexedGrid.Size = new System.Drawing.Size(702, 365);
             this.IndexedGrid.TabIndex = 0;
             this.IndexedGrid.SelectedIndexChanged += new System.EventHandler(this.IndexedGrid_SelectedIndexChanged);
             // 
@@ -57,7 +57,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(665, 318);
+            this.tabPage1.Size = new System.Drawing.Size(694, 339);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "번호순";
             this.tabPage1.UseVisualStyleBackColor = true;

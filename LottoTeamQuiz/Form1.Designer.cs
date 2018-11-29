@@ -41,6 +41,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnSave = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grid_Viewer)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -48,9 +49,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(360, 73);
+            this.label1.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(351, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 12);
+            this.label1.Size = new System.Drawing.Size(119, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "회차 라벨";
             // 
@@ -118,6 +120,7 @@
             this.toolTime.Name = "toolTime";
             this.toolTime.Size = new System.Drawing.Size(121, 17);
             this.toolTime.Text = "toolStripStatusLabel1";
+            this.toolTime.Click += new System.EventHandler(this.toolTime_Click);
             // 
             // toolProcBar
             // 
@@ -141,11 +144,22 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("굴림", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(712, 143);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 29);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "+";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(925, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.list_Img);
@@ -154,7 +168,7 @@
             this.Controls.Add(this.grid_Viewer);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "로또";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid_Viewer)).EndInit();
             this.statusStrip1.ResumeLayout(false);
@@ -178,6 +192,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

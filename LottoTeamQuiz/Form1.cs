@@ -529,5 +529,12 @@ namespace LottoTeamQuiz
                 formDetail.ShowDialog();
             }
         }
+
+        private void toolTime_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("도망자 손종완");
+            MessageBox.Show("좆망겜 이상권");
+            MessageBox.Show("지성욱");
+        }
     }
 }

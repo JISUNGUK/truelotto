@@ -53,6 +53,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.LblCount = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // LblPerPrice5
@@ -67,7 +68,7 @@
             // LblPerPrice4
             // 
             this.LblPerPrice4.AutoSize = true;
-            this.LblPerPrice4.Location = new System.Drawing.Point(423, 196);
+            this.LblPerPrice4.Location = new System.Drawing.Point(421, 196);
             this.LblPerPrice4.Name = "LblPerPrice4";
             this.LblPerPrice4.Size = new System.Drawing.Size(44, 12);
             this.LblPerPrice4.TabIndex = 50;
@@ -148,7 +149,7 @@
             // LblPrice5
             // 
             this.LblPrice5.AutoSize = true;
-            this.LblPrice5.Location = new System.Drawing.Point(131, 226);
+            this.LblPrice5.Location = new System.Drawing.Point(129, 226);
             this.LblPrice5.Name = "LblPrice5";
             this.LblPrice5.Size = new System.Drawing.Size(44, 12);
             this.LblPrice5.TabIndex = 41;
@@ -157,7 +158,7 @@
             // LblPrice4
             // 
             this.LblPrice4.AutoSize = true;
-            this.LblPrice4.Location = new System.Drawing.Point(131, 196);
+            this.LblPrice4.Location = new System.Drawing.Point(129, 196);
             this.LblPrice4.Name = "LblPrice4";
             this.LblPrice4.Size = new System.Drawing.Size(44, 12);
             this.LblPrice4.TabIndex = 40;
@@ -275,17 +276,27 @@
             // 
             this.LblCount.AutoSize = true;
             this.LblCount.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LblCount.Location = new System.Drawing.Point(163, 9);
+            this.LblCount.ForeColor = System.Drawing.Color.Blue;
+            this.LblCount.Location = new System.Drawing.Point(192, 9);
             this.LblCount.Name = "LblCount";
             this.LblCount.Size = new System.Drawing.Size(86, 27);
             this.LblCount.TabIndex = 27;
             this.LblCount.Text = "label1";
+            this.LblCount.Click += new System.EventHandler(this.LblCount_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(12, 91);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(525, 156);
+            this.groupBox1.TabIndex = 52;
+            this.groupBox1.TabStop = false;
             // 
             // FormDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 250);
+            this.ClientSize = new System.Drawing.Size(549, 259);
             this.Controls.Add(this.LblPerPrice5);
             this.Controls.Add(this.LblPerPrice4);
             this.Controls.Add(this.LblPerPrice3);
@@ -311,8 +322,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LblCount);
+            this.Controls.Add(this.groupBox1);
             this.Name = "FormDetail";
-            this.Text = "FormDetail";
+            this.Text = "상세정보";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,5 +357,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LblCount;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

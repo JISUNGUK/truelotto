@@ -59,5 +59,11 @@ namespace LottoTeamQuiz
                 }
             }
         }
+
+        private void LblCount_Click(object sender, EventArgs e)
+        {
+            FrmShopRankInfo form = new FrmShopRankInfo(this.index);
+            form.ShowDialog();
+        }
     }
 }
