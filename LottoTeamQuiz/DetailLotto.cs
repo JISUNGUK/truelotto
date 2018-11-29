@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LottoTeamQuiz
 {
-    class DetailLotto
+    public class DetailLotto
     {
         #region 이상권 작성
         private int lottoNum; // 회차
