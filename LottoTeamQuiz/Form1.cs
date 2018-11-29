@@ -434,7 +434,7 @@ namespace LottoTeamQuiz
         {
             string path = "";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-                path = saveFileDialog1.FileName;
+                path = saveFileDialog1.FileName+".txt";
             XmlWriter xw = XmlWriter.Create(path);
             XmlDocument xd = new XmlDocument();
             XmlElement root = xd.CreateElement("로또파일");
