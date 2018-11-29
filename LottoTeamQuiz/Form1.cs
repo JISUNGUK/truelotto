@@ -135,6 +135,7 @@ namespace LottoTeamQuiz
                     #endregion
 
                     DBInsert(con, lotto);
+                    DBInsert(con, detailLotto);
                 }
                 DataSet();
             }
@@ -162,6 +163,37 @@ namespace LottoTeamQuiz
             com.ExecuteNonQuery();
 
             #endregion
+        }
+
+        private static void DBInsert(SqlConnection con, DetailLotto detailLotto)
+        {
+            SqlCommand com = new SqlCommand();
+            com.Connection = con;
+            com.CommandText = "InsertDetailLotto";
+            com.CommandType = CommandType.StoredProcedure;
+
+            com.Parameters.AddWithValue("lottonum", detailLotto.LottoNum);
+            com.Parameters.AddWithValue("rank1", detailLotto.Rank[0]);
+            com.Parameters.AddWithValue("rank2", detailLotto.Rank[1]);
+            com.Parameters.AddWithValue("rank3", detailLotto.Rank[2]);
+            com.Parameters.AddWithValue("rank4", detailLotto.Rank[3]);
+            com.Parameters.AddWithValue("rank5", detailLotto.Rank[4]);
+            com.Parameters.AddWithValue("price1", detailLotto.Price[0]);
+            com.Parameters.AddWithValue("price2", detailLotto.Price[1]);
+            com.Parameters.AddWithValue("price3", detailLotto.Price[2]);
+            com.Parameters.AddWithValue("price4", detailLotto.Price[3]);
+            com.Parameters.AddWithValue("price5", detailLotto.Price[4]);
+            com.Parameters.AddWithValue("person1", detailLotto.Person[0]);
+            com.Parameters.AddWithValue("person2", detailLotto.Person[1]);
+            com.Parameters.AddWithValue("person3", detailLotto.Person[2]);
+            com.Parameters.AddWithValue("person4", detailLotto.Person[3]);
+            com.Parameters.AddWithValue("person5", detailLotto.Person[4]);
+            com.Parameters.AddWithValue("personprice1", detailLotto.PersonPrice[0]);
+            com.Parameters.AddWithValue("personprice2", detailLotto.PersonPrice[1]);
+            com.Parameters.AddWithValue("personprice3", detailLotto.PersonPrice[2]);
+            com.Parameters.AddWithValue("personprice4", detailLotto.PersonPrice[3]);
+            com.Parameters.AddWithValue("personprice5", detailLotto.PersonPrice[4]);
+            com.ExecuteNonQuery();
         }
 
         /// <summary>
