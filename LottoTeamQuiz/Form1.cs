@@ -29,6 +29,7 @@ namespace LottoTeamQuiz
         #endregion
 
         List<Lotto> lottos = new List<Lotto>();
+
         public Form1()
         {
             InitializeComponent();
@@ -42,6 +43,7 @@ namespace LottoTeamQuiz
 
 
             //DBClear();
+            //DBClear2();
             // 번호를 구해서
             LottoParser(GetFinalNum());
         }
@@ -62,6 +64,23 @@ namespace LottoTeamQuiz
                 com.ExecuteNonQuery();
             }
             MessageBox.Show("디비지웠어요");
+        }
+
+        /// <summary>
+        /// DetailLotto DB삭제
+        /// </summary>
+        void DBClear2()
+        {
+            using (SqlConnection con = new SqlConnection(dbstring))
+            using (SqlCommand com = new SqlCommand())
+            {
+                con.Open();
+
+                com.Connection = con;
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "DeleteDetailLotto";
+                com.ExecuteNonQuery();
+            }
         }
 
         private void LottoParser(int final)
@@ -138,6 +157,7 @@ namespace LottoTeamQuiz
                     DBInsert(con, detailLotto);
                 }
                 DataSet();
+                DataSet2();
             }
 
         }
@@ -201,7 +221,7 @@ namespace LottoTeamQuiz
         /// </summary>
         void DataSet()
         {
-            using(SqlConnection con=new SqlConnection(dbstring))
+            using (SqlConnection con = new SqlConnection(dbstring))
             using (SqlCommand com = new SqlCommand())
             {
                 con.Open();
@@ -221,6 +241,33 @@ namespace LottoTeamQuiz
                     cbo_lottoNum.Items.Add(lotto.LottoNum);
                 }
                 DataShow(lottos);
+            }
+        }
+
+        void DataSet2()
+        {
+            using (SqlConnection con = new SqlConnection(dbstring))
+            using (SqlCommand com = new SqlCommand())
+            {
+                con.Open();
+                com.Connection = con;
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "GetEntryDetailLotto";
+
+                SqlDataReader reader = com.ExecuteReader();
+
+                listDetailLotto.Clear();
+                while (reader.Read())
+                {
+                    DetailLotto dl = new DetailLotto();
+                    dl.LottoNum = Int32.Parse(reader["lottonum"].ToString());
+                    dl.Rank = new int[5] { Int32.Parse(reader["rank1"].ToString()), Int32.Parse(reader["rank2"].ToString()), Int32.Parse(reader["rank3"].ToString()), Int32.Parse(reader["rank4"].ToString()), Int32.Parse(reader["rank5"].ToString()) };
+                    dl.Price = new string[5] { reader["price1"].ToString(), reader["price2"].ToString(), reader["price3"].ToString(), reader["price4"].ToString(), reader["price5"].ToString() };
+                    dl.Person = new int[5] { Int32.Parse(reader["person1"].ToString()), Int32.Parse(reader["person2"].ToString()), Int32.Parse(reader["person3"].ToString()), Int32.Parse(reader["person4"].ToString()), Int32.Parse(reader["person5"].ToString()) };
+                    dl.PersonPrice = new string[5] { reader["personprice1"].ToString(), reader["personprice2"].ToString(), reader["personprice3"].ToString(), reader["personprice4"].ToString(), reader["personprice5"].ToString() };
+
+                    listDetailLotto.Add(dl);
+                }
             }
         }
 
@@ -471,6 +518,16 @@ namespace LottoTeamQuiz
             xw.Flush();
 
         }
-    }
 
+        private void grid_Viewer_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (grid_Viewer.SelectedRows.Count == 1)
+            {
+                int i = (int)grid_Viewer.CurrentRow.Cells[0].Value;
+                FormDetail formDetail = new FormDetail(listDetailLotto, i);
+                formDetail.Owner = this;
+                formDetail.ShowDialog();
+            }
+        }
+    }
 }

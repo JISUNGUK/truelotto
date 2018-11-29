@@ -63,6 +63,7 @@
             this.grid_Viewer.RowTemplate.Height = 23;
             this.grid_Viewer.Size = new System.Drawing.Size(709, 193);
             this.grid_Viewer.TabIndex = 1;
+            this.grid_Viewer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_Viewer_CellClick);
             this.grid_Viewer.SelectionChanged += new System.EventHandler(this.grid_Viewer_SelectionChanged);
             // 
             // cbo_lottoNum
