@@ -11,6 +11,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using HtmlAgilityPack;
 
 namespace LottoTeamQuiz
@@ -35,6 +36,7 @@ namespace LottoTeamQuiz
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            label1.Text = "전체 회차";
             grid_Viewer.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             grid_Viewer.MultiSelect = false;
 
@@ -178,6 +180,7 @@ namespace LottoTeamQuiz
                 SqlDataReader reader = com.ExecuteReader();
 
                 cbo_lottoNum.Items.Add("전체");
+                lottos.Clear();
                 while (reader.Read())
                 {
                     Lotto lotto = new Lotto(Convert.ToInt32(reader[0].ToString()), reader[1].ToString(), reader[2].ToString());
@@ -290,8 +293,9 @@ namespace LottoTeamQuiz
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            grid_Viewer.DataSource = null;
+        {          
+                label1.Text = cbo_lottoNum.SelectedItem.ToString() + "회차";
+                grid_Viewer.DataSource = null;
 
             if (cbo_lottoNum.Text=="전체")
             {
@@ -333,7 +337,7 @@ namespace LottoTeamQuiz
         private void btn_Analyze_Click(object sender, EventArgs e)
         {
             GetFinalNum();
-            FrmAnalyze form = new FrmAnalyze();
+           StaticsEX form = new StaticsEX();
             form.Show();
 
         }
@@ -392,6 +396,48 @@ namespace LottoTeamQuiz
                 }
             }
             return false;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string path = "";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                path = saveFileDialog1.FileName;
+            XmlWriter xw = XmlWriter.Create(path);
+            XmlDocument xd = new XmlDocument();
+            XmlElement root = xd.CreateElement("로또파일");
+            xd.CreateXmlDeclaration("1.0", "UTF8", null);
+            xd.AppendChild(root);
+            if (lottos.Count > 0)
+            {
+                for (int i = 0; i < lottos.Count; i++)
+                {
+                    XmlElement lottonum = xd.CreateElement("회차");
+                    lottonum.InnerText = i + 1 + "회차";
+                    root.AppendChild(lottonum);
+                    for (int j = 0; j < 7; j++)
+                    {
+                        XmlElement num;
+                        if (j != 6)
+                        {
+                            num = xd.CreateElement("숫자");
+                            num.InnerText = Split(lottos[i].WinningNum)[j];
+
+                        }
+                        else
+                        {
+                            num = xd.CreateElement("보너스숫자");
+                            num.InnerText = Split(lottos[i].WinningNum)[j];
+
+                        }
+                        lottonum.AppendChild(num);
+                    }
+                }
+
+            }
+            xd.WriteContentTo(xw);
+            xw.Flush();
+
         }
     }
 

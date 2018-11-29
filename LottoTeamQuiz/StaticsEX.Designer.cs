@@ -65,7 +65,7 @@
             // indexGrid
             // 
             this.indexGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.indexGrid.Location = new System.Drawing.Point(141, 74);
+            this.indexGrid.Location = new System.Drawing.Point(98, 60);
             this.indexGrid.Name = "indexGrid";
             this.indexGrid.RowTemplate.Height = 23;
             this.indexGrid.Size = new System.Drawing.Size(406, 218);

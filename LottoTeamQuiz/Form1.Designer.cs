@@ -39,6 +39,8 @@
             this.toolTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolProcBar = new System.Windows.Forms.ToolStripProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnSave = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.grid_Viewer)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -128,11 +130,22 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(768, 381);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 24);
+            this.btnSave.TabIndex = 8;
+            this.btnSave.Text = "저장";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(925, 450);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.list_Img);
             this.Controls.Add(this.btn_Analyze);
@@ -162,6 +175,8 @@
         private System.Windows.Forms.ToolStripStatusLabel toolTime;
         private System.Windows.Forms.ToolStripProgressBar toolProcBar;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
