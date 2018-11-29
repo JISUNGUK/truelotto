@@ -21,5 +21,10 @@ namespace LottoTeamQuiz
         {
             
         }
+
+        private void FrmAnalyze_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

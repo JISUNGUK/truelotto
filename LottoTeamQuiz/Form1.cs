@@ -536,5 +536,10 @@ namespace LottoTeamQuiz
             MessageBox.Show("좆망겜 이상권");
             MessageBox.Show("지성욱");
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

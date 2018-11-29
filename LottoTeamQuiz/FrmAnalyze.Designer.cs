@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btn_NumAnalyze = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -88,16 +88,16 @@
             // 
             // chart_Analyze
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart_Analyze.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart_Analyze.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart_Analyze.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_Analyze.Legends.Add(legend1);
             this.chart_Analyze.Location = new System.Drawing.Point(36, 127);
             this.chart_Analyze.Name = "chart_Analyze";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart_Analyze.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart_Analyze.Series.Add(series1);
             this.chart_Analyze.Size = new System.Drawing.Size(717, 311);
             this.chart_Analyze.TabIndex = 5;
             this.chart_Analyze.Text = "chart1";
@@ -115,6 +115,7 @@
             this.Controls.Add(this.btn_NumAnalyze);
             this.Name = "FrmAnalyze";
             this.Text = "FrmAnalyze";
+            this.Load += new System.EventHandler(this.FrmAnalyze_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart_Analyze)).EndInit();
             this.ResumeLayout(false);
 

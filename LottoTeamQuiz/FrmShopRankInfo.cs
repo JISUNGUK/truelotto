@@ -37,27 +37,25 @@ namespace LottoTeamQuiz
         private void Test()
         {
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://nlotto.co.kr/store.do?method=topStore&pageGubun=L645");
+           /* HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://nlotto.co.kr/store.do?method=topStore&pageGubun=L645");
             WebResponse response = request.GetResponse();
 
             Stream stream = response.GetResponseStream();
             StreamReader reader = new StreamReader(stream, Encoding.Default);
 
             string xmlstr = reader.ReadToEnd();
-            textBox1.Text = xmlstr;
+            textBox1.Text = xmlstr;*/
 
             XmlDocument xml = new XmlDocument();
-
             //XmlNodeList node = xml.SelectNodes("//head");
+            HtmlAgilityPack.HtmlWeb hw = new HtmlAgilityPack.HtmlWeb();
+            hw.OverrideEncoding = Encoding.UTF8;
+            HtmlAgilityPack.HtmlDocument hd = hw.Load("http://nlotto.co.kr/store.do?method=topStore&pageGubun=L645");
 
-            xml.LoadXml(xmlstr);
-            //xml.Load("http://nlotto.co.kr/store.do?method=topStore&pageGubun=L645");
-
-            //MessageBox.Show(xml.InnerXml);
-            //foreach (XmlNodeList item in list)
-            //{
-            //    MessageBox.Show(item[0].InnerXml);
-            //}
+            foreach (HtmlAgilityPack.HtmlNode item in hd.DocumentNode.SelectNodes("//head"))
+            {
+                MessageBox.Show(item.ChildNodes[0].InnerText);
+            }
         }
     }
 }
